@@ -48,7 +48,12 @@ public class SortUsingComparable {
         list.add(s9);
         list.add(s10);
 
+        System.out.println("Before sorting:");
+        for(int i=0;i<10;i++)
+            System.out.println(list.get(i));
+
         Collections.sort(list);
+        System.out.println("After sorting:");
         for(int i=0;i<10;i++)
         System.out.println(list.get(i));
     }
