@@ -1,7 +1,10 @@
 package com.example.SpringSecurity.controller;
 
 import com.example.SpringSecurity.model.Student;
+import com.example.SpringSecurity.model.User;
+import com.example.SpringSecurity.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +16,15 @@ import java.util.List;
 
 @org.springframework.web.bind.annotation.RestController
 public class RestController {
+
+    @Autowired
+    private UserService muds;
+
+    @PostMapping("register")
+    public User newuser(@RequestBody User user)
+    {
+        return muds.saveuser(user);
+    }
     @GetMapping("/")
     public String getpage(HttpServletRequest request)
     {
